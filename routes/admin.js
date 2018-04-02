@@ -1,11 +1,20 @@
 require('./../util/time')
 let express = require('express');
 let md5 = require('md5');
+let fs = require('fs');
 let router = express.Router();
+let app = express()
 
 let Article = require('./../models/articles')
 let User = require('./../models/users')
 let Tags = require('./../models/tags')
+
+app.use(express.static('public'));
+
+// 获取后台管理页面
+router.get('/index.html', function(req, res) {
+        console.log(req)
+    })
     // 文章列表
 router.get("/api/articleList_admin", function(req, res) {
     let page = parseInt(req.param("page")) //浏览器参数第几页
