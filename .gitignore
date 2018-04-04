@@ -1,5 +1,5 @@
 /node_modules/*
-/public/admin/*
-/public/blog/*
+/admin/*
+/myBlog/*
 /public/static/*
 /dist/*

@@ -4,10 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var history = require('connect-history-api-fallback');
 
 const route = require('./routes/index.js')
 
 var app = express();
+
+
+var admin = express.static(path.join(__dirname, 'admin'))
+var blog = express.static(path.join(__dirname, 'myBlog'))
+
+app.use('/admin', admin)
+app.use(history());
+app.use('/', blog)
+app.use(history());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +30,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public')));
 
 route(app)
 
