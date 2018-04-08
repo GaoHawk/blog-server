@@ -10,7 +10,7 @@ let User = require('./../models/users')
 let Tags = require('./../models/tags')
 
 app.use(express.static('public'));
-console.log(12);
+console.log(1);
 
 // 获取后台管理页面
 router.get('/index.html', function(req, res) {
