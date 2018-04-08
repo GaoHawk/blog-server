@@ -11,7 +11,7 @@ let Tags = require('./../models/tags')
 
 app.use(express.static('public'));
 
-console.log(test);
+
 // 获取后台管理页面
 router.get('/index.html', function(req, res) {
         console.log(req)
